@@ -45,7 +45,8 @@ async def _search_per_week(keyword, week_list):
             query='Body:{} AND ReleaseDate:[{} TO {}]'
                 .format(keyword,
                         week['start'].strftime('%Y-%m-%d'),
-                        week['end'].strftime('%Y-%m-%d'))
+                        week['end'].strftime('%Y-%m-%d')),
+            rows=1
         )
         
         return int(response['response']['result']['numFound'])
